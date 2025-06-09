@@ -1,10 +1,10 @@
-package main;
+package mainControl;
 
 /**
  *
  * @author ls
  */
-public class Lsstore {
+public class LsstoreMain {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
