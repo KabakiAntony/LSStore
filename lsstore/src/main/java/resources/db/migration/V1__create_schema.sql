@@ -29,9 +29,16 @@ CREATE TABLE IF NOT EXISTS sales (
     sale_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- (Optional) Create SYSTEM_LOG table for debugging and record-keeping
+-- Create SYSTEM_LOG table for debugging and record-keeping
 CREATE TABLE IF NOT EXISTS system_log (
     id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    action VARCHAR(50) NOT NULL,
+    entity VARCHAR(50) NOT NULL,
     message TEXT,
-    log_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    log_level VARCHAR(10) DEFAULT 'INFO',
+    log_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
 );
+
