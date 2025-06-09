@@ -25,3 +25,4 @@ replay_pid*
 /lsstore/target/
 
 config.properties
+lsstore/src/main/java/resources/config.properties
