@@ -5,21 +5,33 @@ import org.slf4j.LoggerFactory;
 import model.SystemLog;
 
 public class LSStoreLogger {
-   private static final Logger logger = LoggerFactory.getLogger(LSStoreLogger.class);
+    private static final Logger logger = LoggerFactory.getLogger(LSStoreLogger.class);
 
-    public static void info(String username, String action) {
-        logger.info("User [{}]: {}", username, action);
-        SystemLog.log(username, action, "INFO");
+    /**
+     * Log an INFO level message.
+     * @param userId ID of user performing the action
+     * @param action Action type (e.g., LOGIN, ADD_PRODUCT)
+     * @param entity Affected system entity (e.g., PRODUCT, SALE)
+     * @param message Human-readable log message
+     */
+    public static void info(int userId, String action, String entity, String message) {
+        logger.info("User [{}] Action [{}] Entity [{}] ID [{}]: {}", userId, action, entity, message);
+        SystemLog.log(userId, action, entity, message, "INFO");
     }
 
-    public static void warn(String username, String action) {
-        logger.warn("User [{}]: {}", username, action);
-        SystemLog.log(username, action, "WARN");
+    /**
+     * Log a WARN level message.
+     */
+    public static void warn(int userId, String action, String entity, String message) {
+        logger.warn("User [{}] Action [{}] Entity [{}] ID [{}]: {}", userId, action, entity, message);
+        SystemLog.log(userId, action, entity, message, "WARN");
     }
 
-    public static void error(String username, String action, Throwable throwable) {
-        logger.error("User [{}]: {}", username, action, throwable);
-        SystemLog.log(username, action, "ERROR");
+    /**
+     * Log an ERROR level message.
+     */
+    public static void error(int userId, String action, String entity, String message, Throwable throwable) {
+        logger.error("User [{}] Action [{}] Entity [{}] ID [{}]: {}", userId, action, entity, message, throwable);
+        SystemLog.log(userId, action, entity, message, "ERROR");
     }
-    
 }
