@@ -38,9 +38,9 @@ public class SystemLog {
             stmt.setInt(1, userId);
             stmt.setString(2, action);
             stmt.setString(3, entity);
-            stmt.setString(5, message);
-            stmt.setString(6, level);
-            stmt.setTimestamp(7, new Timestamp(System.currentTimeMillis()));
+            stmt.setString(4, message);
+            stmt.setString(5, level);
+            stmt.setTimestamp(6, new Timestamp(System.currentTimeMillis()));
 
             stmt.executeUpdate();
 
