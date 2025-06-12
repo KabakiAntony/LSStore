@@ -1,4 +1,4 @@
-package utils;
+package util;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,5 +20,9 @@ public class ConfigLoader {
 
     public static String get(String key) {
         return properties.getProperty(key);
+    }
+    
+    public static Properties getProperties(){
+        return properties;
     }
 }

@@ -1,4 +1,4 @@
-package utils;
+package util;
 
 import org.flywaydb.core.Flyway;
 import org.slf4j.Logger;
