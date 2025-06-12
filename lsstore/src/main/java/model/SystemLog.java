@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
-import utils.DBConnection;
+import util.DBConnection;
 
 /**
  * Logs user actions to the system_log table in the DB.
