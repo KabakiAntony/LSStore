@@ -3,7 +3,7 @@ package model;
 public class User {
     private int id;
     private String username;
-    private String password; // hashed
+    private String password;
     private Role role;
 
     public User(int id, String username, String password, Role role) {
