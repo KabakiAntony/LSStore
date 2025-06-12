@@ -2,9 +2,9 @@ package dao;
 
 import model.Role;
 import model.User;
-import utils.DBConnection;
-import utils.LSStoreLogger;
-import utils.PasswordUtil;
+import util.DBConnection;
+import util.LSStoreLogger;
+import util.PasswordUtils;
 
 import java.sql.*;
 
@@ -33,7 +33,7 @@ public class UserDAO {
     }
 
     public boolean create(User user) {
-        String hashedPassword = PasswordUtil.hashPassword(user.getPassword());
+        String hashedPassword = PasswordUtils.hashPassword(user.getPassword().toCharArray());
         String sql = "INSERT INTO users (username, password, role) VALUES (?, ?, ?)";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
