@@ -8,7 +8,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>21</maven.compiler.release>
-        <exec.mainClass>com.ls.lsstore.Lsstore</exec.mainClass>
+        <exec.mainClass>launcher.LSStoreLauncher</exec.mainClass>
     </properties>
     <dependencies>
         <!-- PostgreSQL -->
@@ -45,11 +45,16 @@
        </dependency>
        
         <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-database-postgresql</artifactId>
+            <version>11.9.1</version>
+        </dependency>
+       
+        <dependency>
           <groupId>at.favre.lib</groupId>
           <artifactId>bcrypt</artifactId>
           <version>0.10.2</version>
         </dependency>
 
-        
     </dependencies>
 </project>
